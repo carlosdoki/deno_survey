@@ -8,3 +8,4 @@ client.connectWithUri(
 const db = client.database("deno_survey");
 
 export const usersCollection = db.collection("users");
+export const surveyCollection = db.collection("surveys");
