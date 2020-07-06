@@ -1,0 +1,23 @@
+{
+  "name": "survey",
+  "version": "1.0.0",
+  "description": "Sample application Survey with Authentication and use MongoDB.",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosdoki/deno_survey.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosdoki/deno_survey/issues"
+  },
+  "homepage": "https://github.com/carlosdoki/deno_survey#readme",
+  "dependencies": {
+    "appdynamics": "^20.6.0",
+    "crypto": "^1.0.1"
+  }
+}

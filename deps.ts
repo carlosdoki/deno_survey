@@ -19,3 +19,4 @@ export {
   Payload,
 } from "https://deno.land/x/djwt@v0.9.0/create.ts";
 import "https://deno.land/x/dotenv@v0.5.0/load.ts";
+export { createRequire } from "https://deno.land/std@0.60.0/node/module.ts";

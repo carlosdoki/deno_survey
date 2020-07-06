@@ -23,7 +23,7 @@ Content-Type: application/json
 GET http://localhost:8000/api/survey
 
 ### Get Single Survey
-GET http://localhost:8000/api/survey/5f025de200f9c5b3001d5cc31
+GET http://localhost:8000/api/survey/5f03331200a680e300d6bff8
 
 ### Create
 POST http://localhost:8000/api/survey
@@ -35,13 +35,13 @@ Content-Type: application/json
 }
 
 ### Update
-PUT http://localhost:8000/api/survey/id
+PUT http://localhost:8000/api/survey/5f03331200a680e300d6bff8
 Content-Type: application/json
 
 {
-    "email":"test@example.com",
-    "password":"test"
+    "name":"Survey 1 Update",
+    "description":"something survey 1 - Update "
 }
 
 ### Delete 
-DELETE http://localhost:8000/api/survey/id
+DELETE http://localhost:8000/api/survey/5f03331200a680e300d6bff8
