@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <title>Deno Surveys</title>
+  </head>
+  <body>
+    <h1>Active Surveys</h1>
+    <% for (let survey of surveys) { %>
+    <div class="card survey-card mb-3"></div>
+    <a href="/survey/<%= survey.id %>">
+      <div class="card-body">
+        <div class="card-title"><%= survey.name %></div>
+        <div class="card-text"><%= survey.description %></div>
+      </div>
+    </a>
+    <% } %>
+  </body>
+</html>

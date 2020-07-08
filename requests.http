@@ -37,7 +37,7 @@ Authorization: : Bearer {{token}}
 Content-Type: application/json
 
 {
-    "name":"Survey 3",
+    "name":"Survey 1",
     "description":"something survey 1"
 }
 
@@ -73,7 +73,7 @@ Authorization: : Bearer {{token}}
 Content-Type: application/json
 
 {
-    "text":"How much you like Deno?",
+    "text":"How much you like Node?",
     "type":"choice",
     "required" : true,
     "data" : {

@@ -20,3 +20,4 @@ export {
 } from "https://deno.land/x/djwt@v0.9.0/create.ts";
 import "https://deno.land/x/dotenv@v0.5.0/load.ts";
 export { createRequire } from "https://deno.land/std@0.60.0/node/module.ts";
+export { renderFileToString } from "https://deno.land/x/dejs@0.7.0/mod.ts";
