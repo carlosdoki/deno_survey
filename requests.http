@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNTk0MTQ4NjgzNzA5fQ.OMe_xOXu2vijlsUJP8xjz-8TqgWUhUjrYo4sOVSDb7o
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNTk0MTcxNjI3OTE1fQ._vcJFPAvecThjd09JxAaNKvv3YH8uMrR__XtkeT_4ps
 
 ###############################
 ### Surveys
@@ -63,6 +63,10 @@ Authorization: : Bearer {{token}}
 GET http://localhost:8000/api/survey/5f03b4af002fc9a100b49254/questions
 Authorization: : Bearer {{token}}
 
+### Get Single Question
+GET http://localhost:8000/api/question/5f05168b0063d87100d651ff
+Authorization: : Bearer {{token}}
+
 ### Create
 POST http://localhost:8000/api/question/5f03b4af002fc9a100b49254
 Authorization: : Bearer {{token}}
@@ -70,7 +74,7 @@ Content-Type: application/json
 
 {
     "text":"How much you like Deno?",
-    "tyep":"choice",
+    "type":"choice",
     "required" : true,
     "data" : {
         "multiple" : false,
@@ -78,7 +82,32 @@ Content-Type: application/json
             "I like it very much",
             "I like it",
             "I don't like it",
-            "I hate it",
+            "I hate it"
         ]
     }
 }
+
+### Update
+PUT http://localhost:8000/api/question/5f04bcf000b8e5c900f9465f
+Authorization: : Bearer {{token}}
+Content-Type: application/json
+
+{
+    "text":"How much you like Deno?",
+    "type":"choice",
+    "required" : true,
+    "data" : {
+        "multiple" : false,
+        "answers": [
+            "I like it very much",
+            "I like it",
+            "I don't like it",
+            "I hate it"
+        ]
+    }
+}
+
+### Delete
+DELETE http://localhost:8000/api/question/5f04bcf000b8e5c900f9465f
+Authorization: : Bearer {{token}}
+

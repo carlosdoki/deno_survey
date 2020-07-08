@@ -11,10 +11,54 @@ class QuestionController extends BaseSurveyController {
       ctx.response.body = questions;
     }
   }
-  async getSingle(ctx: RouterContext) {}
-  async create(ctx: RouterContext) {}
-  async update(ctx: RouterContext) {}
-  async delete(ctx: RouterContext) {}
+  async getSingle(ctx: RouterContext) {
+    const id = ctx.params.id!;
+    const question = await Question.findById(id);
+    if (!question) {
+      ctx.response.status = 404;
+      ctx.response.body = { message: "Invalid question ID" };
+      return;
+    }
+    ctx.response.body = question;
+  }
+  async create(ctx: RouterContext) {
+    const {
+      value: { text, type, required, data },
+    } = await ctx.request.body();
+    const surveyId: string = ctx.params.surveyId!;
+    const survey = await this.findSurveyOrFail(surveyId, ctx);
+    if (survey) {
+      const question = new Question(surveyId, text, type, required, data);
+      await question.create();
+      ctx.response.status = 201;
+      ctx.response.body = question;
+    }
+  }
+  async update(ctx: RouterContext) {
+    const id = ctx.params.id!;
+    const question = await Question.findById(id);
+    if (!question) {
+      ctx.response.status = 404;
+      ctx.response.body = { message: "Invalid question ID" };
+      return;
+    }
+    const {
+      value: { text, type, required, data },
+    } = await ctx.request.body();
+    await question.update(text, type, required, data);
+    ctx.response.body = question;
+  }
+  async delete(ctx: RouterContext) {
+    const id = ctx.params.id!;
+    const question = await Question.findById(id);
+    if (!question) {
+      ctx.response.status = 404;
+      ctx.response.body = { message: "Invalid question ID" };
+      return;
+    }
+    await question.delete();
+    ctx.response.status = 204;
+  }
 }
 
 const questionController = new QuestionController();
