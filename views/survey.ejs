@@ -1,0 +1,48 @@
+<%- await include(`views/partials/header.ejs`) %>
+<div class="container">
+  <p>
+    <a href="/" class="btn btn-light">Go back to all surveys</a>
+  </p>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h1><%= survey.name %></h1>
+      <div>
+        <%= survey.description %>
+      </div>
+    </div>
+  </div>
+
+  <% for (let question of questions) { %>
+  <div class="card mb-3 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= question.text%>
+      </h5>
+      <% if (question.isText()) {%>
+      <input
+        type="text"
+        class="form-control"
+        name="<%= question.id %>"
+        placeholder="Write your answer"
+      />
+      <% } else if (question.isChoice() && !question.data.multiple) { for (let
+      [index, answer] of question.data.answers.entries()) { %>
+      <div class="custom-control custom-radio">
+        <input
+          type="radio"
+          id="<%= question.id %>_<%= index %>"
+          name="<%= question.id%>"
+          class="custom-control-input"
+        />
+        <label
+          class="custom-control-label"
+          for="<%= question.id %>_<%= index %>"
+          ><%= answer %></label
+        >
+      </div>
+      <% } } %>
+    </div>
+  </div>
+  <% } %>
+</div>
+<%- await include(`views/partials/footer.ejs`) %>

@@ -8,7 +8,7 @@ export default class Question extends BaseModel {
     public text: String,
     public type: QuestionType,
     public required: boolean,
-    public data: any
+    public data: any,
   ) {
     super();
   }
@@ -37,7 +37,7 @@ export default class Question extends BaseModel {
   async update(text: string, type: QuestionType, required: boolean, data: any) {
     await questionCollection.updateOne(
       { _id: { $oid: this.id } },
-      { $set: { text, type, required, data } }
+      { $set: { text, type, required, data } },
     );
     this.text = text;
     this.type = type;
@@ -50,6 +50,14 @@ export default class Question extends BaseModel {
     return questionCollection.deleteOne({ _id: { $oid: this.id } });
   }
 
+  isText(): boolean {
+    return this.type === QuestionType.TEXT;
+  }
+
+  isChoice(): boolean {
+    return this.type === QuestionType.CHOICE;
+  }
+
   protected static prepare(data: any): Question {
     data = BaseModel.prepare(data);
     const question = new Question(
@@ -57,7 +65,7 @@ export default class Question extends BaseModel {
       data.text,
       data.type,
       data.required,
-      data.data
+      data.data,
     );
     question.id = data.id;
     return question;
