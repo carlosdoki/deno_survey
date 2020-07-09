@@ -40,6 +40,20 @@
           ><%= answer %></label
         >
       </div>
+      <% } } else if (question.isChoice() && question.data.multiple) { for (let
+      [index, answer] of question.data.answers.entries()) { %>
+      <div class="custom-control custom-checkbox">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="<%= question.id %>_<%= index %>"
+        />
+        <label
+          class="custom-control-label"
+          for="<%= question.id %>_<%= index %>"
+          ><%= answer %></label
+        >
+      </div>
       <% } } %>
     </div>
   </div>

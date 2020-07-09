@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNTk0MTcxNjI3OTE1fQ._vcJFPAvecThjd09JxAaNKvv3YH8uMrR__XtkeT_4ps
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjoxNTk0MjU5NDY1MTA3fQ.txL9BBf7TGvbws26MonxpRkEKTAlyRNWjIH4GtAvQm0
 
 ###############################
 ### Surveys
@@ -73,11 +73,11 @@ Authorization: : Bearer {{token}}
 Content-Type: application/json
 
 {
-    "text":"How much you like Node?",
-    "type":"choice",
+    "text":"Question 3?",
+    "type":"text",
     "required" : true,
     "data" : {
-        "multiple" : false,
+        "multiple" : true,
         "answers": [
             "I like it very much",
             "I like it",
@@ -93,11 +93,11 @@ Authorization: : Bearer {{token}}
 Content-Type: application/json
 
 {
-    "text":"How much you like Deno?",
+    "text":"Question 2?",
     "type":"choice",
     "required" : true,
     "data" : {
-        "multiple" : false,
+        "multiple" : true,
         "answers": [
             "I like it very much",
             "I like it",
